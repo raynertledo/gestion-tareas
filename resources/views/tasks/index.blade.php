@@ -42,11 +42,9 @@
                         <td>
                             <a href="{{ route('tasks.show', $task) }}" class="btn btn-info">Ver</a>
                             <a href="{{ route('tasks.edit', $task) }}" class="btn btn-warning">Editar</a>
-                            <form action="{{ route('tasks.destroy', $task) }}" method="POST" style="display:inline-block;">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit" class="btn btn-danger" onclick="return confirm('¿Estás seguro?')">Eliminar</button>
-                            </form>
+                            <button type="button" class="btn btn-danger delete-button" data-url="{{ route('tasks.destroy', $task) }}">
+                                Eliminar
+                            </button>
                         </td>
                     </tr>
                 @endforeach
